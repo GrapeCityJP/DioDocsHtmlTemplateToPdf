@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sheet.css" media="all">
+    <title>請求書</title>
+</head>
+<body>
+    <section class="sheet">
+        <div class="row_1">
+            <h1 class="text-center">請求書</h1>
+        </div>
+        <div class="row_2">
+            <ul class="text-right">
+                <li>No: {{ invoice.invoice_number }}</li>
+                <li>請求日: {{ invoice.issue_date }}</li>
+            </ul>
+        </div>
+        <div class="row_3">
+            <div class="col_1">
+                <ul>
+                    <li><h2 class="customer_name">{{ invoice.customer.name }} 御中</h2></li>
+                    <li>件名: {{ invoice.customer.project_name }}</li>
+                    <li>支払期限: {{ invoice.due_date }}</li>
+                </ul>
+            </div>
+            <div class="col_2">
+                <ul>
+                    <li>
+                        <h2>葡萄商事株式会社</h2>
+                    </li>
+                    <li>〒981-9999</li>
+                    <li>M県S市紅葉区杜王町2-6-11</li>
+                    <li>定禅寺プライムビル3階</li>
+                    <li>TEL: 022-7777-8888</li>
+                    <li>e-mail: sales@budou-shoji.co.jp</li>
+                </ul>
+                <!-- <img class="stamp" src="stamp.png"> -->
+            </div>
+            <div class="clear-element"></div>
+        </div>
+        <div class="row_4">
+            <p>下記のとおりご請求申し上げます。</p>
+            <table class="summary">
+                <tbody>
+                    <tr>
+                        <th>合計金額</th>
+                        {{ subtotal = 0 }}
+                        {{ for item in invoice.items }}
+                        {{ subtotal += item.total_price }}
+                        {{ tax = subtotal * 0.1}}
+                        {{ grandtotal = subtotal + tax }}
+                        {{ end }}
+                        <td>{{grandtotal | math.format "c" "ja-JP"}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row_5">
+            <table class="detail">
+                <thead>
+                    <tr>
+                        <th class="item">品名</th>
+                        <th class="unit_price">単価</th>
+                        <th class="amount">数量</th>
+                        <th class="subtotal">金額</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ for item in invoice.items }}
+                    <tr class="dataline">
+                        <td class="text-left">{{ item.name }}</td>
+                        <td>{{ item.price  | math.format "c" "ja-JP" }}</td>
+                        <td>{{ item.quantity }}</td>
+                        {{ totalprice = item.price * item.quantity }}
+                        <td>{{ totalprice | math.format "c" "ja-JP" }}</td>
+                    </tr>
+                    {{end}}
+                    <tr>
+                        <td class="space" rowspan="3" colspan="2"> </td>
+                        <th>小計</th>
+                        <td>{{ subtotal | math.format "c" "ja-JP" }}</td>
+                    </tr>
+                    <tr>
+                        <th>消費税</th>
+                        <td>{{ tax | math.format "c" "ja-JP" }}</td>
+                    </tr>
+                    <tr>
+                        <th>合計</th>
+                        <td>{{ grandtotal | math.format "c" "ja-JP" }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ul>
+            <li>振込先</li>
+            <li>名義：カ）ブドウショウジ</li>
+            <li>杜王町銀行 紫山支店 普通 98765432</li>
+        </ul>
+        <p>※恐れ入りますがお振込み手数料は御社にてご負担くださいますようお願いいたします。</p>
+    </section>
+</body>
+</html>

@@ -20,6 +20,9 @@
     <None Update="Template\InvoiceTemplate.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Template\InvoiceTemplate_EmbedFormula.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Template\sheet.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
