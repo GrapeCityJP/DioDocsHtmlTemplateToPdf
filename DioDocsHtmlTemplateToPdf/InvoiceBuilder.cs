@@ -11,14 +11,13 @@ namespace DioDocsHtmlTemplateToPdf
         {
             // 請求書に追加するデータ
             var invoice = JsonSerializer.Deserialize<Invoice>(File.ReadAllText("InvoiceData.json"));
-            var templateData = new { invoice };
-
+            
             // HTMLテンプレートを読み込み
             var invoiceTemplate = File.ReadAllText("./Template/InvoiceTemplate.html");
             var template = Template.Parse(invoiceTemplate);
             
             // HTMLテンプレートにデータを追加
-            var pageContent = template.Render(templateData);
+            var pageContent = template.Render(new { invoice });
             File.WriteAllText("./Template/pageContent.html", pageContent, System.Text.Encoding.UTF8);
 
             // HTMLのレンダリングに使用するGcHtmlBrowserのインスタンスを生成
