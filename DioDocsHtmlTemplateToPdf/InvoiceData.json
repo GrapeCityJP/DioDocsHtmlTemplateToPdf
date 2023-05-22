@@ -1,0 +1,67 @@
+{
+  "InvoiceNumber": "BS-2023-123-456",
+  "IssueDate": "2023/04/01",
+  "DueDate": "2023/5/31",
+  "Customer": {
+    "Name": "財団法人スピードワゴン",
+    "Address": "M県S市広瀬区花京院3-1-4",
+    "Email": "purchasing@mori-speed-wagon.com",
+    "ProjectName": "2023年春フェス用ケータリング"
+  },
+  "Items": [
+    {
+      "Name": "モッツァレッラチーズとトマトのサラダ",
+      "Description": "前菜",
+      "Price": 1200,
+      "Quantity": 70
+    },
+    {
+      "Name": "娼婦風スパゲティー",
+      "Description": "パスタ",
+      "Price": 2500,
+      "Quantity": 30
+    },
+    {
+      "Name": "小羊背肉のリンゴソースかけ",
+      "Description": "メイン",
+      "Price": 5000,
+      "Quantity": 130
+    },
+    {
+      "Name": "ごま蜜団子",
+      "Description": "デザート",
+      "Price": 800,
+      "Quantity": 60
+    },
+    {
+      "Name": "激辛麻婆焼きそば",
+      "Description": "麺",
+      "Price": 1000,
+      "Quantity": 50
+    },
+    {
+      "Name": "塩竈マグロ",
+      "Description": "魚",
+      "Price": 2300,
+      "Quantity": 80
+    },
+    {
+      "Name": "超極厚牛タン",
+      "Description": "肉",
+      "Price": 4800,
+      "Quantity": 110
+    },
+    {
+      "Name": "濃厚ずんだロール",
+      "Description": "デザート",
+      "Price": 800,
+      "Quantity": 60
+    },
+    {
+      "Name": "ハチミツパンケーキ",
+      "Description": "お持ち帰り",
+      "Price": 1300,
+      "Quantity": 60
+    }
+  ]
+}
