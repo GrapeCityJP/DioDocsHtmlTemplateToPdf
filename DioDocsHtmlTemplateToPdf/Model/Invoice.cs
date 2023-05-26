@@ -18,19 +18,19 @@ namespace DioDocsHtmlTemplateToPdf.Model
             }
         }
 
-        public float Tax
+        public decimal Tax
         {
             get
             {
-                return (float)SubTotal * 0.1f;
+                return SubTotal * (decimal)0.1;
             }
         }
 
-        public float GrandTotal
+        public decimal GrandTotal
         {
             get
             {
-                return (float)SubTotal + Tax;
+                return SubTotal + Tax;
             }
         }
     }
